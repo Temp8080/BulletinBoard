@@ -14,7 +14,7 @@ Built with Maven.
 Open /src/main/resources/hibernate.cfg.xml. <br/>
 Enter your database information in this fields:
 ```xml
-    <property name="hibernate.connection.url">YOU URL</property>
+    <property name="hibernate.connection.url">YOUR URL</property>
     <property name="hibernate.connection.username">YOUR LOGIN</property>
     <property name="hibernate.connection.password">YOUR PASSWORD</property>
 ```    
