@@ -1,0 +1,41 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    ">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="callboard"/>
+
+    <bean class="callboard.utils.profiling.ProfilingBeanPostProcessor" id="profilingBeanPostProcessor"/>
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="favServ" class="callboard.service.impl.FavoriteServiceImlp" scope="prototype"/>
+    <bean id="fav" class="callboard.data.Favorites" scope="prototype"/>
+
+    <bean id="userConv" class="callboard.user.UserConverter" scope="prototype"/>
+
+    <bean id="userServ" class="callboard.service.impl.UserServiceImpl">
+    </bean>
+    <bean id="udao" class="callboard.dao.impl.UserDAOImlp"/>
+
+    <bean id="itemServ" class="callboard.service.impl.ItemServiceImlp">
+    </bean>
+    <bean id="idao" class="callboard.dao.impl.ItemDAOImlp"/>
+
+    <bean id="itemConv" class="callboard.item.ItemConverter" scope="prototype"/>
+</beans>
+
+

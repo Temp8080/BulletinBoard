@@ -1,0 +1,211 @@
+body {
+    background:  #E6E6FA;
+}
+
+.creation-form{
+    
+    inline-block: block;
+    font-size: x-large;
+    background: #E0FFFF;
+    border: 1px solid #00BFFF;
+    padding:15px 100px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+    
+}
+.create-ahref-main-btn{
+    margin: 20px auto;
+    display:block;
+    text-align: center;
+}
+
+.creation-form table{
+    margin: auto;
+}
+
+#create-input-submit{
+    width: 320px;
+}
+.main-control-menu{
+    background: #9370DB; 
+    position: fixed ;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 5px; 
+
+}
+
+.login-form{
+    inline-block: block;
+    font-size: xx-large;
+    background: #E0FFFF;
+    border: 1px solid #00BFFF;
+    padding:25px 100px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+}
+.login-form table{
+    margin: auto;
+}
+
+.login-div-form{
+ text-align: center;
+    font-size: x-large;
+    background: #E0FFFF;
+    border: 1px solid #00BFFF;
+    padding:25px 100px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+
+.login-div-form table{
+    text-align:center; 
+    margin-left:auto; 
+    margin-right:auto; 
+    width:100px;
+}
+
+.login-form input[type=text], input[type=password]{
+    border: 1px solid #cccccc; 
+    border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px; 
+    background: #ffffff !important; 
+    outline: none; 
+    height: 30px; 
+    width: 200px; 
+    color: #cccccc;
+    font-size: 20px;
+    font-family: Tahoma; 
+}
+.login-form input:focus {
+    color: #000000;
+    border: 1px solid #000000
+}
+
+#login-form-input-LogIn{
+    width: 335px;
+}
+.a-exit{
+    position: absolute;
+    right: 0;
+
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+
+.singleItem img{
+    width: 500px;
+    height: 500px;
+}
+input[type=submit] {
+    padding:5px 15px; 
+    font-size: 14px;
+    border: 2px solid #00BFFF;
+    width:18ex;
+    height:4ex;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+
+.info-h1{
+    text-align: center;
+    font-size: 28px;
+}
+
+.info-form-main-btn{
+    position: fixed;
+    top: 20%;
+    left:45%;
+}
+.info-form-redirect-timer{
+    position: fixed;
+    left:43%;
+
+}
+
+.register-form{
+     inline-block: block;
+    font-size: xx-large;
+    background: #E0FFFF;
+    border: 1px solid #00BFFF;
+    padding:15px 100px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+}
+.register-form table{
+    margin: auto;
+}
+
+.register-form input[type=number], input[type=password], input[type=text]{
+    border: 1px solid #cccccc; 
+    border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px; 
+    background: #ffffff !important; 
+    outline: none; 
+    height: 30px; 
+    width: 200px; 
+    color: #cccccc;
+    font-size: 20px;
+    font-family: Tahoma; 
+}
+
+.register-form input:focus{
+    color: #000000;
+    border: 1px solid #000000
+}
+
+#register-form-input-register{
+    width: 340px;
+}
+
+.form-startpage{
+   text-align: center;
+}
+
+.register-form input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button{
+     -webkit-appearance: none !important;
+    margin: 0 !important;
+    -moz-appearance:textfield !important;; 
+}
+.single-owner-items-div{
+    text-align: center;
+    font-size: x-large;
+    background: #E0FFFF;
+    border: 1px solid #00BFFF;
+    padding:25px 100px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+#useracc-deleteFromFavorites-btn{
+    display: block;
+    margin: auto;
+    width: 500px;
+   
+}
+
+.useracc-fav-items-div{
+   text-align: center;
+    font-size: large;
+    background: #E0FFFF;
+    border: 1px solid #00BFFF;
+    padding:5px 50px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;  
+}
