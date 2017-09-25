@@ -7,14 +7,15 @@
 	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
     ">
-
+    <context:property-placeholder location="classpath*:db-config.properties, classpath:dev.properties" file-encoding="UTF-8"/>
     <context:annotation-config/>
-    <context:component-scan base-package="callboard"/>
+    <context:component-scan base-package="ua.com.callboard"/>
 
-    <bean class="callboard.utils.profiling.ProfilingBeanPostProcessor" id="profilingBeanPostProcessor"/>
+
+
+    <bean class="ua.com.callboard.utils.profiling.ProfilingBeanPostProcessor" id="profilingBeanPostProcessor"/>
 
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
-
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
@@ -22,20 +23,74 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean id="favServ" class="callboard.service.impl.FavoriteServiceImlp" scope="prototype"/>
-    <bean id="fav" class="callboard.data.Favorites" scope="prototype"/>
-
-    <bean id="userConv" class="callboard.user.UserConverter" scope="prototype"/>
-
-    <bean id="userServ" class="callboard.service.impl.UserServiceImpl">
+    <!-- Hibernate config -->
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="sessionFactory">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="ua.com.callboard.instance"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.connection.autocommit">${hibernate.connection.autocommit}</prop>
+                <prop key="hibernate.connection.Charset">${hibernate.charset}</prop>
+                <prop key="hibernate.connection.CharacterEncoding">${hibernate.encoding}</prop>
+                <prop key="hibernate.connection.Useunicode">${hibernate.unicode}</prop>
+            </props>
+        </property>
     </bean>
-    <bean id="udao" class="callboard.dao.impl.UserDAOImlp"/>
 
-    <bean id="itemServ" class="callboard.service.impl.ItemServiceImlp">
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+        <property name="url" value="${hibernate.url}"/>
+        <property name="username" value="${hibernate.username}"/>
+        <property name="password" value="${hibernate.password}"/>
+        <property name="driverClassName" value="${hibernate.driver}"/>
     </bean>
-    <bean id="idao" class="callboard.dao.impl.ItemDAOImlp"/>
 
-    <bean id="itemConv" class="callboard.item.ItemConverter" scope="prototype"/>
+    <bean class="org.springframework.orm.hibernate5.HibernateTemplate" id="hibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="emf">
+        <property name="packagesToScan" value="ua.com.callboard.instance" />
+        <property name="dataSource" ref="dataSource" />
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        <property name="persistenceUnitName" value="stadto"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="true"/>
+        <property name="generateDdl" value="true"/>
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQL57Dialect"/>
+    </bean>
+
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf" />
+        <property name="jpaDialect" ref="jpaDialect"/>
+    </bean>
+
+    <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+
+    <!-- Beans -->
+    <bean id="favServ" class="ua.com.callboard.service.impl.FavoriteServiceImlp" scope="prototype"/>
+
+    <bean id="fav" class="ua.com.callboard.data.Favorites" scope="prototype"/>
+
+    <bean id="userConv" class="ua.com.callboard.user.UserConverter" scope="prototype"/>
+
+    <bean id="itemConv" class="ua.com.callboard.item.ItemConverter" scope="prototype"/>
 </beans>
 
 
