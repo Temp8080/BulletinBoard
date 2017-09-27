@@ -16,5 +16,5 @@ public interface UserService {
 
     void addUser(User u);
 
-    void updateUserFav(User u, String update);
+    void updateUser(User user);
 }

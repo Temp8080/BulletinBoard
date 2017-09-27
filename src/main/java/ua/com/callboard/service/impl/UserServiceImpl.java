@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
         udao.addUser(u);
     }
 
-    public void updateUserFav(User u, String update) {
-        udao.updateUserFav(u, update);
+    public void updateUser(User user) {
+        udao.updateUser(user);
     }
 }

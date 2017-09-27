@@ -40,9 +40,9 @@ public class UserDAOImlp implements UserDAO {
         logger.info("Add new user with login " + user.getLogin());
     }
 
-    public void updateUserFav(User user, String update) {
-        user.setFav(update);
+    public void updateUser(User user) {
         template.update(user);
+        logger.info("Update user with login " + user.getLogin());
     }
 
     public void deleteUser(User user){

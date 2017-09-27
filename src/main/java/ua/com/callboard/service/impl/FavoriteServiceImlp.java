@@ -57,7 +57,7 @@ public class FavoriteServiceImlp implements FavoriteService {
         Favorites upFav = updateFav(fav, id);
         String backToJsonFav = new Gson().toJson(upFav);
         userForSession.setFav(backToJsonFav);
-        userService.updateUserFav(userConverter.sessionForUser(userForSession), backToJsonFav);
+        userService.updateUser(userConverter.sessionForUser(userForSession));
         List<ItemForOwner> listUpdate = new LinkedList<>();
         listUpdate = itemConverter.listItemForAccount(upFav.getFav(), listItems);
         return listUpdate;
