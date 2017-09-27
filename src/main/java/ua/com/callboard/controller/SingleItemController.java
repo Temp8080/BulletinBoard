@@ -40,7 +40,7 @@ public class SingleItemController {
 
         /**
          *  Page for a detailed product description.
-         *  Get a list of items from a session, select for id and return to page.
+         *  Get a list of items from a session, select by id and return to page.
          *  Get owner by login and return to page.
          *  Test if user Log In, for make available button 'Add to favorites'
          */
