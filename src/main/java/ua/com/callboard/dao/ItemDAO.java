@@ -18,4 +18,8 @@ public interface ItemDAO {
     List<Item> getItemsByCategory(String category);
 
     List<Item> getItemsByLogin(String login);
+
+    void updateItem(Item item);
+
+    void deleteItem(Item item);
 }

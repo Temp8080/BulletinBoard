@@ -66,4 +66,14 @@ public class ItemDAOImlp implements ItemDAO {
         logger.info("Get Items by Owner "+login+" from db");
         return entityManager.createQuery(criteriaQuery).getResultList();
     }
+
+    public void updateItem(Item item){
+        template.update(item);
+        logger.info("Update Item "+item+" in db");
+    }
+
+    public void deleteItem(Item item){
+        template.delete(item);
+        logger.info("Delete Item "+item+" in db");
+    }
 }

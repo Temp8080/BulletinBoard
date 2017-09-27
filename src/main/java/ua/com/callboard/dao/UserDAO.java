@@ -15,4 +15,6 @@ public interface UserDAO {
     void addUser(User user);
 
     void updateUserFav(User user, String update);
+
+    void deleteUser(User user);
 }

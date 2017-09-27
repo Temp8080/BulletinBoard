@@ -43,6 +43,10 @@ public class UserDAOImlp implements UserDAO {
     public void updateUserFav(User user, String update) {
         user.setFav(update);
         template.update(user);
-     //   template.save(user);
+    }
+
+    public void deleteUser(User user){
+        template.delete(user);
+        logger.info("Delete user with login " + user.getLogin());
     }
 }
